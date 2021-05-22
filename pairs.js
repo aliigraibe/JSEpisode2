@@ -32,16 +32,26 @@
  * console.log(random); // 3 (the random element)
  * console.log(numbers);  // [1, 2, 4] (missing the random element)
  ************************************************/
-Array.prototype.getRandom = function () {
+ Array.prototype.getRandom = function () {
   return this.splice(Math.floor(Math.random() * this.length), 1)[0];
 };
 
 function pairs(names) {
   // Your code goes here
+  const arr = [];
+  if (names) {
+  while(names.length > 1){
+    arr.push([names.getRandom() ,   names.getRandom()]);
+  }
+  if (names.length === 1) arr.push([names.getRandom()]);
 }
-
+return arr;
+  
+}
 module.exports = pairs;
 
-console.log(
-  pairs(["Asis", "Hamsa", "Fawas", "Mishmish", "Hussein", "Lailz", "Mr Potato"])
-);
+console.log(pairs(["Asis", "Hamsa", "Fawas", "Mishmish", "Hussein", "Lailz" ]));
+
+console.log(pairs(["Asis", "Hamsa", "Fawas", "Mishmish", "Hussein" ]));
+console.log(pairs([]));
+console.log(pairs());
